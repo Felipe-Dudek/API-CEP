@@ -106,6 +106,7 @@ function criaLinhasTabela(){
                                     <th>IBGE</th>
                                     <th>Siafi</th>
                                     <th>Gia</th>
+                                    <th>Excluir</th>
                                 </tr>`
     dados.forEach(function(dado) {
         const novaLinha = document.createElement('tr');
@@ -150,8 +151,28 @@ function criaLinhasTabela(){
         giaDado.innerText = dado.gia;
         novaLinha.appendChild(giaDado);
 
+        const deletarDado = document.createElement('td');
+        deletarDado.innerHTML = `<a class='lixeira flex flex-center' onclick="excluirCEP('${dado.cep}')">🗑️</a>`;
+        novaLinha.appendChild(deletarDado);
+
         tablePrincipal.appendChild(novaLinha);
     });
+}
+
+function excluirCEP(cepExcluir){
+    console.log(cepExcluir);
+    const localStorage = window.localStorage;
+    let dadosLocalStorage = recuperaDados()
+    if(confirm(`Você tem certeza que deseja excluir esse CEP ${cepExcluir}?`)){
+        dadosLocalStorage.forEach((dados, index) => {
+            if(dados.cep === cepExcluir){
+                dadosLocalStorage.splice(index, 1)
+                localStorage.setItem("cep-pesquisados", JSON.stringify(dadosLocalStorage));
+                criaLinhasTabela();
+                return;
+            }
+        });
+    }
 }
 
 function salvarDadosLocalStorage(){
