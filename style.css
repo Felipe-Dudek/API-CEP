@@ -1,0 +1,158 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.button-success{
+    background-color: #04AA6D;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    width: 70%;
+    transition: background-color 0.5s ease;
+}
+
+.button-clean{
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    width: 30%;
+    transition: background-color 0.5s ease;
+}
+
+.button-clean:hover{
+    background-color: #006384;
+}
+
+.button-success:hover{
+    background-color: #015d3b;
+}
+
+.button-clean:disabled{
+    background-color: grey;
+    cursor: not-allowed;
+}
+
+.button-success:disabled{
+    background-color: grey;
+    cursor: not-allowed;
+}
+
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.popup {
+    font-family: Arial, sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 60%;
+    height: 80%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.popup-content {
+    text-align: center;
+}
+
+.popup .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+}
+
+.input-base{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.flex{
+    display: flex;
+}
+
+.flex-end{
+    justify-content: flex-end;
+}
+
+.flex-start{
+    justify-content: flex-start;
+}
+
+.align-center{
+    align-items: center;
+}
+
+.grid{
+    display: grid;
+}
+
+.grid-template-resposta{
+    grid-template-columns: auto auto auto;
+}
+
+.gap{
+    column-gap: 10px;
+}
+
+.font-family{
+    font-family: arial, sans-serif;
+}
+
+.margin-top-base{
+    margin-top: 10px;
+}
+
+.margin-bottom-base{
+    margin-bottom: 10px;
+}
+
+.margin-right-base{
+    margin-right: 10px;
+}
+
+.margin-left-base{
+    margin-left: 10px;
+}

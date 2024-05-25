@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="flex flex-end">
+        <button class="button-success font-family" onclick="openPopup()" 
+        style="width: 200px;">Pesquisar CEP</button>
+    </div>
+    <div>
+        <table id="table">
+        </table>
+    </div>
+
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup" id="popup">
+            <span class="close" id="closePopup">X</span>
+            <div class="popup-content margin-top-base">
+                <div class="flex align-center">
+                    <input onblur="consultaCep()" type="text" name="cep" id="cep" placeholder="Digite seu CEP"
+                    class="input-base">
+                </div>
+                <div class="flex align-center flex-start margin-top-base">
+                    <button onclick="consultaCep()" class="button-success margin-right-base">Consultar</button>
+                    <button onclick="limparConsulta()" class="button-clean">Limpar Consulta</button>
+                </div>
+
+                <div id="resposta" class="grid grid-template-resposta gap">
+                    <input type="text" name="cep" id="cep-resposta" placeholder="CEP"
+                    class="input-base" disabled>
+                    <input type="text" name="estado" id="estado-resposta" placeholder="Estado"
+                    class="input-base" disabled>
+                    <input type="text" name="cidade" id="cidade-resposta" placeholder="Cidade"
+                    class="input-base" disabled>
+                    <input type="text" name="bairro" id="bairro-resposta" placeholder="Bairro"
+                    class="input-base" disabled>
+                    <input type="text" name="logradouro" id="logradouro-resposta" placeholder="Logradouro"
+                    class="input-base" disabled>
+                    <input type="text" name="complemento" id="complemento-resposta" placeholder="Complemento"
+                    class="input-base" disabled>
+                    <input type="text" name="ddd" id="ddd-resposta" placeholder="DDD"
+                    class="input-base" disabled>
+                    <input type="text" name="ibge" id="ibge-resposta" placeholder="IBGE"
+                    class="input-base" disabled>
+                    <input type="text" name="siafi" id="siafi-resposta" placeholder="Siafi"
+                    class="input-base" disabled>
+                    <input type="text" name="gia" id="gia-resposta" placeholder="Gia"
+                    class="input-base" disabled>
+                </div>
+                <div class="flex align-center flex-start margin-top-base">
+                    <button onclick="salvarDadosLocalStorage()" id="salvar" 
+                    class="button-success margin-right-base" style="width: 100%;"disabled>Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>    
+</body>
+</html>
