@@ -49,7 +49,7 @@ function consultaCep() {
     fetch(`https://viacep.com.br/ws/${cep}/json/`)
     .then(resposta => resposta.json())
     .then(json => populaInput(json))
-    .catch(error => console.log(error))
+    .catch(error => alert("Este CEP não é válido!"))
 }
 
 function limparConsulta(){
@@ -196,5 +196,14 @@ function salvarDadosLocalStorage(){
         closePopupFunc();
     }
 }
+
+const inp = document.getElementById("cep");
+inp.addEventListener("input", function(event) {
+    //regex para verificar se a string dos inputs númericos estão recebendo só números decimais
+    let regex = /^(\d+\.?\d*|\.\d+)$/;
+    if (!regex.test(inp.value)) {
+        inp.value = "";
+    }
+});
 
 criaLinhasTabela();
