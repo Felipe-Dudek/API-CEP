@@ -50,7 +50,7 @@ function consultaCep() {
     .then(resposta => resposta.json())
     .then(json => populaInput(json))
     .catch(function(error) {
-        alert("Error", error);
+        alert("O CEP não é válido");
     })
 }
 
@@ -206,7 +206,7 @@ function salvarDadosLocalStorage(){
 const inp = document.getElementById("cep");
 inp.addEventListener("input", function(event) {
     //regex para verificar se a string dos inputs númericos estão recebendo só números decimais
-    let regex = /^(\d+\.?\d*|\.\d+)$/;
+    let regex = /^[\d-]+$/;
     if (!regex.test(inp.value)) {
         inp.value = "";
     }
