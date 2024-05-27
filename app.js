@@ -1,5 +1,5 @@
 //popup const
-const popupOverlay = document.getElementById('popupOverlay');
+//const popupOverlay = document.getElementById('popupOverlay');
 const popup = document.getElementById('popup');
 const closePopup = document.getElementById('closePopup');
 const emailInput = document.getElementById('emailInput');
@@ -37,11 +37,11 @@ function closePopupFunc(){
 
 closePopup.addEventListener('click', closePopupFunc);
 
-popupOverlay.addEventListener('click', function (event) {
+/***popupOverlay.addEventListener('click', function (event) {
     if (event.target === popupOverlay) {
         closePopupFunc();
     }
-});
+});***/
 
 function consultaCep() {
     const cep = document.querySelector('#cep').value 
@@ -49,7 +49,9 @@ function consultaCep() {
     fetch(`https://viacep.com.br/ws/${cep}/json/`)
     .then(resposta => resposta.json())
     .then(json => populaInput(json))
-    .catch(error => alert("Este CEP não é válido!"))
+    .catch(function(error) {
+        alert("Error", error);
+    })
 }
 
 function limparConsulta(){
@@ -69,6 +71,10 @@ function limparConsulta(){
 }
 
 function populaInput(json){
+    if(json.cep === undefined){
+        alert("O CEP não é válido");
+        return;
+    }
     cepInput.value = json.cep;
     estadoInput.value = json.uf;
     cidadeInput.value = json.localidade;
